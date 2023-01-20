@@ -1,5 +1,4 @@
 from flask import Flask, jsonify
-from gevent.pywsgi import WSGIServer
 from waitress import serve
 
 app = Flask(__name__)
@@ -11,7 +10,7 @@ def hello_world():
                 "Service " : 'App Runner',
                 "Message" : "You Flask App is succesfuly deployed using App Runner ",
             }
-    
+
     return jsonify(data)
 
 if __name__ == "__main__":
