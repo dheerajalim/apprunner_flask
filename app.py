@@ -1,4 +1,6 @@
 from flask import Flask, jsonify
+from gevent.pywsgi import WSGIServer
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -11,3 +13,7 @@ def hello_world():
             }
     
     return jsonify(data)
+
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
